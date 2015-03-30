@@ -6,14 +6,26 @@ import java.util.Scanner;
 
 public class ENugentHangmanDraw
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws InterruptedException
 	{
 		int relSize = 1;
 		StandardPen pen = new StandardPen();
-		drawHeadLoc(pen, relSize);
-		drawBody(pen, relSize);
 		drawNoose(pen, relSize);
+		Thread.sleep(1000);
+		drawHeadLoc(pen, relSize);
+		Thread.sleep(1000);
+		drawHeadEye(1, pen, relSize);
+		Thread.sleep(1000);
+		drawHeadEye(2, pen, relSize);
+		Thread.sleep(1000);
+		drawNoseLoc(pen, relSize);
+		Thread.sleep(1000);
+		drawMouthLoc(pen, relSize);
+		Thread.sleep(1000);
 		drawTophat(pen, relSize);
+		Thread.sleep(1000);
+		drawBody(pen, relSize);
+		Thread.sleep(1000);
 		drawMoustache(pen, relSize);
 	}
 	
@@ -22,9 +34,9 @@ public class ENugentHangmanDraw
 		pen.home();
 		pen.up();
 		pen.setDirection(90);
-		pen.move(relSize*180/Math.PI+100*relSize);
+		pen.move(relSize*180/Math.PI+145*relSize);
 		pen.setDirection(180);
-		pen.move(relSize*180/Math.PI);
+		pen.move(relSize*180/Math.PI + relSize*4/3);
 		pen.down();
 		drawHead(pen, relSize);
 	}
@@ -36,25 +48,6 @@ public class ENugentHangmanDraw
 			pen.move(relSize);
 			pen.turn(1);
 		}
-		drawHeadAccessories(pen, relSize);
-	}
-	
-	public static void drawHeadAccessories(StandardPen pen, int relSize)
-	{
-		//Currently facing East
-		pen.up();
-		pen.move(relSize*25);
-		pen.turn(90);
-		pen.move(relSize*25);
-		pen.down();
-		drawHeadEye(pen, relSize);
-		pen.up();
-		pen.setDirection(0);
-		pen.move(relSize*40);
-		pen.down();
-		drawHeadEye(pen, relSize);
-		drawNoseLoc(pen, relSize);
-		drawMouthLoc(pen, relSize);
 	}
 	
 	public static void drawTophat(StandardPen pen, int relSize)
@@ -75,7 +68,6 @@ public class ENugentHangmanDraw
 		pen.turn(90);
 		pen.move(30*relSize);
 		pen.turn(270);
-		fixPosTophat(pen, relSize);
 	}
 	
 	public static void drawTophatLoc(StandardPen pen, int relSize)
@@ -83,22 +75,55 @@ public class ENugentHangmanDraw
 		pen.home();
 		pen.up();
 		pen.setDirection(90);
-		pen.move(relSize*180/Math.PI+100*relSize);
+		pen.move(relSize*180/Math.PI+145*relSize);
 		pen.setDirection(180);
 		pen.move(relSize*180/Math.PI);
 		pen.down();
 	}
 	
-	public static void fixPosTophat(StandardPen pen, int relSize)
+	public static void drawHeadEye(int eye, StandardPen pen, int relSize)
 	{
-		pen.up();
-		pen.setDirection(0);
-		pen.move(relSize*180/Math.PI/4);
-		pen.down();
+		if (eye == 1)
+		{
+			drawHeadEye1(pen, relSize);
+		}
+		if (eye == 2)
+		{
+			drawHeadEye2(pen, relSize);
+		}
 	}
 	
-	public static void drawHeadEye(StandardPen pen, int relSize)
+	public static void drawHeadEye1(StandardPen pen, int relSize)
 	{
+		pen.home();
+		pen.up();
+		pen.setDirection(90);
+		pen.move(relSize*180/Math.PI+145*relSize);
+		pen.turn(90);
+		pen.move(relSize*180/Math.PI-15*relSize);
+		pen.turn(90);
+		pen.move(20*relSize);
+		pen.down();
+		pen.setDirection(270);
+		pen.move(relSize*15);
+		pen.turn(120);
+		pen.move(relSize*15);
+		pen.turn(120);
+		pen.move(relSize*15);
+		pen.turn(120);
+	}
+	
+	public static void drawHeadEye2(StandardPen pen, int relSize)
+	{
+		pen.home();
+		pen.up();
+		pen.setDirection(90);
+		pen.move(relSize*180/Math.PI+145*relSize);
+		pen.turn(90);
+		pen.move(relSize*180/Math.PI+25*relSize);
+		pen.turn(90);
+		pen.move(20*relSize);
+		pen.down();
 		pen.setDirection(270);
 		pen.move(relSize*15);
 		pen.turn(120);
@@ -111,9 +136,14 @@ public class ENugentHangmanDraw
 	public static void drawNoseLoc(StandardPen pen, int relSize)
 	{
 		pen.up();
-		pen.move(relSize*30);
+		pen.home();
+		pen.move(relSize*180/Math.PI+145*relSize);
+		pen.setDirection(180);
+		pen.move(relSize*180/Math.PI);
+		pen.setDirection(270);
+		pen.move(relSize*50);
 		pen.turn(270);
-		pen.move(relSize*15);
+		pen.move(6);
 		pen.down();
 		drawNose(pen, relSize);
 	}
@@ -131,6 +161,8 @@ public class ENugentHangmanDraw
 	public static void drawMouthLoc(StandardPen pen, int relSize)
 	{
 		pen.up();
+		pen.home();
+		pen.move(relSize*180/Math.PI+145*relSize);
 		pen.setDirection(270);
 		pen.move(relSize*30);
 		pen.turn(270);
@@ -158,10 +190,12 @@ public class ENugentHangmanDraw
 	public static void drawBodyLoc(StandardPen pen, int relSize)
 	{
 		pen.up();
-		pen.setDirection(0);
-		pen.move(15*relSize);
-		pen.turn(270);
-		pen.move(30*relSize);
+		pen.home();
+		pen.setDirection(180);
+		pen.move(relSize*180/Math.PI + relSize*4/3);
+		pen.setDirection(90);
+		pen.move(145*relSize-relSize*180/Math.PI);
+		pen.setDirection(270);
 		pen.down();
 	}
 	
@@ -206,6 +240,11 @@ public class ENugentHangmanDraw
 	public static void drawNooseLoc(StandardPen pen, int relSize)
 	{
 		pen.up();
+		pen.home();
+		pen.setDirection(90);
+		pen.move(relSize*180/Math.PI);
+		pen.turn(90);
+		pen.move(relSize*180/Math.PI + relSize*4/3);
 		pen.setDirection(90);
 		pen.move(relSize*360/Math.PI+31*relSize);
 		pen.move(30*relSize);
@@ -215,10 +254,9 @@ public class ENugentHangmanDraw
 	public static void drawMoustache(StandardPen pen, int relSize)
 	{
 		pen.home();
-		
 	}
 	
-	public static void test(StandardPen pen)
+	public static void test(StandardPen pen) // This was used for debugging, such as when I wanted to know where the heck my pen decided it wanted to be
 	{
 		pen.move(100);
 		pen.turn(180);
