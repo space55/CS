@@ -5,30 +5,7 @@ import TurtleGraphics.*;
 import java.util.Scanner;
 
 public class ENugentHangmanDraw
-{
-	public static void main(String[] args) throws InterruptedException
-	{
-		int relSize = 1;
-		StandardPen pen = new StandardPen();
-		drawNoose(pen, relSize);
-		Thread.sleep(1000);
-		drawHeadLoc(pen, relSize);
-		Thread.sleep(1000);
-		drawHeadEye(1, pen, relSize);
-		Thread.sleep(1000);
-		drawHeadEye(2, pen, relSize);
-		Thread.sleep(1000);
-		drawNoseLoc(pen, relSize);
-		Thread.sleep(1000);
-		drawMouthLoc(pen, relSize);
-		Thread.sleep(1000);
-		drawTophat(pen, relSize);
-		Thread.sleep(1000);
-		drawBody(pen, relSize);
-		Thread.sleep(1000);
-		drawMoustache(pen, relSize);
-	}
-	
+{	
 	public static void drawHeadLoc(StandardPen pen, int relSize)
 	{
 		pen.home();

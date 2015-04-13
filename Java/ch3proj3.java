@@ -30,10 +30,18 @@ public class ch3proj3
 				catch (Exception e)
 				{
 				}
+				if (!isValid)
+				{
+					System.out.println("Sorry, but that was invalid");
+				}
 			}
 			if (age < 18)
 			{
 				busFare = 40;
+			}
+			else if (age >= 65)
+			{
+				
 			}
 			System.out.println("Your bus fare is $0." + busFare);
 		}
