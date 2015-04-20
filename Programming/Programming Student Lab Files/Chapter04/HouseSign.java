@@ -21,7 +21,7 @@ public class HouseSign
 		charge = 30;
 		if (chars > 6)
 		{
-			charge = charge + (3 * (chars - 6))
+			charge = charge + (3 * (chars - 6));
 		}
 		if (wood.equalsIgnoreCase("oak"))
 		{

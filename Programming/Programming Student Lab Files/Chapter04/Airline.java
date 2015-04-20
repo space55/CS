@@ -12,19 +12,22 @@ public class Airline
 		int passengerAge = 0; 	// Passenger's age.
 
 		// This is the work done in the housekeeping() method
-		passengerName = JOptionPane.showInputDialog("Enter passenger's name: ");
-		ageString = JOptionPane.showInputDialog("Enter passenger's age: ");
+		passengerName = JOptionPane.showInputDialog(null, "Enter passenger's name: ");
+		ageString = JOptionPane.showInputDialog(null, "Enter passenger's age: ");
 		
 		passengerAge = Integer.parseInt(ageString);
 		
 		// This is the work done in the detailLoop() method 
 		// Test to see if this customer is eligible for a 20% discount. 
-				
-		
-
+		if (passengerAge <= 7 || passengerAge >= 65)
+		{
+			JOptionPane.showMessageDialog(null, passengerName + " is elegible for a discount.");
+		}
+		else
+		{
+			JOptionPane.showMessageDialog(null, passengerName + " is inelegible for a discount.");
+		}
 		// This is the work done in the endOfJob() method
 		System.exit(0);
 	}
-
-} 
-
+}
