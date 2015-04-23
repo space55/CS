@@ -18,18 +18,30 @@ public class Ch4Ex2_B
         
         JOptionPane.showMessageDialog(null, "Hello! When you're done inputting values, please enter \"done\", got it?");
         
-        for (timeThrough = 0; moreValue && timeThrough < iterations; timeThrough++;)
+        for (timeThrough = 0; moreValue && timeThrough < iterations; timeThrough++)
         {
-            idS[timeThrough] = JOptionPane.showInputDialog(null, "ID please.");
-            policiesS[timeThrough] = JOptionPane.showInputDialog(null, "How many policies did they sell?");
-            
-            try
+            if (moreValue)
             {
-                if (policiesS[timeThrough].equalsIgnoreCase("done") || idS[timeThrough].equalsIgnoreCase("done"))
+                idS[timeThrough] = JOptionPane.showInputDialog(null, "ID please.");
+                
+                if (idS[timeThrough].equalsIgnoreCase("done"))
                 {
                     moreValue = false;
                 }
-                else
+            }
+            if (moreValue)
+            {
+                policiesS[timeThrough] = JOptionPane.showInputDialog(null, "How many policies did they sell?");
+                
+                if (policiesS[timeThrough].equalsIgnoreCase("done"))
+                {
+                    moreValue = false;
+                }
+            }
+            
+            try
+            {
+                if (moreValue)
                 {
                     policies[timeThrough] = Integer.parseInt(policiesS[timeThrough]);
                     id[timeThrough] = Integer.parseInt(idS[timeThrough]);
