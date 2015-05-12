@@ -9,47 +9,48 @@ public class ENugentHangmanGame
 {
 	public static void main(String[] args) throws Exception
 	{
-		ENugentHangmanDraw draw = new ENugentHangmanDraw();
+        int relSize = 1;
+        String secretWord = "power";
 		StandardPen pen = new StandardPen();
-		Scanner in = new Scanner(System.in);
-		
-		String word = "cat";
-		int wleng = word.length();
-		
-		String letter[] = new String[wleng];
-		for (int counter = 0; counter < wleng; counter++)
-		{
-			letter[counter] word.charAt(counter);
-		}
-		
-		System.out.println("Please guess a letter");
-		String guess = in.next();
-		int gleng = guess.length();
-		
-		for (int counter = 0; counter < gleng; counter++)
-		{
-			for (int counter = 0; counter < 
-			if (guess.charAt(counter) == letter[counter]
-		}
-		
-		int relSize = 1;
-		
-		draw.drawNoose(pen, relSize);
-		Thread.sleep(1000);
-		draw.drawHeadLoc(pen, relSize);
-		Thread.sleep(1000);
-		draw.drawHeadEye(1, pen, relSize);
-		Thread.sleep(1000);
-		draw.drawHeadEye(2, pen, relSize);
-		Thread.sleep(1000);
-		draw.drawNoseLoc(pen, relSize);
-		Thread.sleep(1000);
-		draw.drawMouthLoc(pen, relSize);
-		Thread.sleep(1000);
-		draw.drawTophat(pen, relSize);
-		Thread.sleep(1000);
-		draw.drawBody(pen, relSize);
-		Thread.sleep(1000);
-		draw.drawMoustache(pen, relSize);
+		guessMyWordInput gInput = new guessMyWordInput();
+        guessMyWordCheck gCheck = new guessMyWorcCheck();
+        guessMyWordIncorrect gInc = new guessMyWordIncorrect();
+        
+        gInput.init(secretWord);
+        gInc.init();
+        char used [] = new char [26];
+        
+        while (cont)
+        {
+            char guessed = gInput.guess();
+            
+            boolean used = false;
+            
+            for (int counter = 0; counter < 26; counter++)
+            {
+                if (used[counter] == guessed)
+                {
+                    used = true;
+                }
+            }
+            if (used)
+            {
+                System.out.println("You've already used that.");
+            }
+            else
+            {
+                int guessInt = (int) guessed - 97;
+                
+                boolean correct = gCheck.check(secretWord, guessed);
+                if (!correct)
+                {
+                    gInc(pen, relSize);
+                }
+                if (correct)
+                {
+                    used[guessInt] = guessed;
+                }
+            }
+        }
 	}
 }

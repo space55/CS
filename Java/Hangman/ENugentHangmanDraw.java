@@ -2,7 +2,6 @@
 //ENugentHangmanDraw
 
 import TurtleGraphics.*;
-import java.util.Scanner;
 
 public class ENugentHangmanDraw
 {	
@@ -122,11 +121,11 @@ public class ENugentHangmanDraw
 		pen.turn(270);
 		pen.move(6);
 		pen.down();
-		drawNose(pen, relSize);
 	}
 	
 	public static void drawNose(StandardPen pen, int relSize)
 	{
+        drawNoseLoc(pen, relSize);
 		pen.setDirection(270);
 		pen.move(7*relSize);
 		pen.turn(120);
@@ -145,11 +144,11 @@ public class ENugentHangmanDraw
 		pen.turn(270);
 		pen.move(relSize*20);
 		pen.down();
-		drawMouth(pen, relSize);
 	}
 	
 	public static void drawMouth(StandardPen pen, int relSize)
 	{
+        drawMouthLoc(pen, relSize);
 		pen.turn(130);
 		for (int counter = 0; counter < 50; counter++)
 		{
