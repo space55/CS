@@ -3,50 +3,38 @@
 
 import java.util.Scanner;
 
-public class guessMyWord
+public class guessMyWordCheck
 {
-    public static boolean check(char input, String word)
+    public static boolean check(char entered, String word)
     {
-        Scanner in = new Scanner(System.in);
         boolean guessed = false;
         boolean correctLetter = false;
+        int length = word.length();
         char wordArray [] = new char [length];
         for (int counter = 0; counter < length; counter++)
         {
             wordArray[counter] = '-';
         }
-        while (!guessed)
+        boolean wordFinished = false;
+        int lastPos = 0;
+        while (!wordFinished)
         {
-            boolean wordFinished = false;
-            int lastPos = 0;
-            while (!wordFinished)
+            if (word.indexOf(entered, lastPos) != -1)
             {
-                if (word.indexOf(entered, lastPos) != -1)
-                {
-                    int guessedPos = word.indexOf(entered);
-                    wordArray[guessedPos] = entered;
-                    lastPos = guessedPos+1;
-                    if (lastPos == length)
-                    {
-                        wordFinished = true;
-                    }
-                    correctLetter = true;
-                }
-                else
+                int guessedPos = word.indexOf(entered);
+                wordArray[guessedPos] = entered;
+                lastPos = guessedPos+1;
+                if (lastPos == length)
                 {
                     wordFinished = true;
                 }
+                correctLetter = true;
             }
-            String fullArray = "";
-            for (int counter = 0; counter < length; counter++)
+            else
             {
-                fullArray += wordArray[counter];
-            }
-            if (fullArray.equalsIgnoreCase(word))
-            {
-                guessed = true;
+                wordFinished = true;
             }
         }
-        System.out.println("You've figured out the word!");
+        return correctLetter;
     }
 }

@@ -9,47 +9,101 @@ public class ENugentHangmanGame
 {
 	public static void main(String[] args) throws Exception
 	{
-        int relSize = 1;
-        String secretWord = "power";
-		StandardPen pen = new StandardPen();
-		guessMyWordInput gInput = new guessMyWordInput();
-        guessMyWordCheck gCheck = new guessMyWorcCheck();
-        guessMyWordIncorrect gInc = new guessMyWordIncorrect();
-        
-        gInput.init(secretWord);
-        gInc.init();
-        char used [] = new char [26];
-        
-        while (cont)
+        boolean end = false;
+        while (!end)
         {
-            char guessed = gInput.guess();
+            int relSize = 1;
+            String secretWord = "power";
+            StandardPen pen = new StandardPen();
+            guessMyWordInput gInput = new guessMyWordInput();
+            guessMyWordCheck gCheck = new guessMyWordCheck();
+            guessMyWordIncorrect gInc = new guessMyWordIncorrect();
+            ENugentHangmanDraw draw = new ENugentHangmanDraw();
+            draw.drawNoose(pen, relSize);
+            Scanner in = new Scanner(System.in);
+            int incN = 0;
+
+            boolean cont = true;
+            int length = secretWord.length();
+            char wordArray [] = new char [length];
+            String dashes = "";
             
-            boolean used = false;
-            
-            for (int counter = 0; counter < 26; counter++)
+            for (int counter = 0; counter < length; counter++)
             {
-                if (used[counter] == guessed)
-                {
-                    used = true;
-                }
+                wordArray[counter] = '-';
             }
-            if (used)
+            String used = "";
+
+            while (cont)
             {
-                System.out.println("You've already used that.");
+                dashes = "";
+                for (int counter = 0; counter < length; counter++)
+                {
+                    dashes += wordArray[counter];
+                }
+                System.out.print("You've used: ");
+                for (int counter = 0; counter < used.length()-1; counter++)
+                {
+                    System.out.print(used.charAt(counter) + ", ");
+                }
+                if (used.length() > 1)
+                {
+                    System.out.println(used.charAt(used.length()-1) + ".");
+                }
+                if (used.length() == 1)
+                {
+                    System.out.println()
+                }
+                System.out.println();
+                System.out.println(dashes);
+                char guessed = gInput.guess();
+                System.out.println("\n");
+
+                boolean letterUsed = false;
+
+                if (used.indexOf(guessed) != -1)
+                {
+                    letterUsed = true;
+                }
+                if (letterUsed)
+                {
+                    System.out.println("You've already used that.");
+                }
+                else
+                {
+                    boolean correct = gCheck.check(guessed, secretWord);
+                    if (!correct)
+                    {
+                        boolean lose = gInc.incorrect(pen, relSize, incN);
+                        if (lose)
+                        {
+                            cont = false;
+                            System.out.println("You've lost.");
+                        }
+                        else
+                        {
+                            used += guessed;
+                            incN++;
+                        }
+                    }
+                    if (correct)
+                    {
+                        int spot = secretWord.indexOf(guessed);
+                        wordArray[spot] = guessed;
+                    }
+                }
+                if (dashes.equalsIgnoreCase(secretWord))
+                {
+                    System.out.println("You've finished the game! Congratz!");
+                    cont = false;
+                }
+                letterUsed = false;
             }
-            else
+            System.out.println("Would you like to play again?");
+            String again = in.nextLine();
+            if (again.equalsIgnoreCase("no"))
             {
-                int guessInt = (int) guessed - 97;
-                
-                boolean correct = gCheck.check(secretWord, guessed);
-                if (!correct)
-                {
-                    gInc(pen, relSize);
-                }
-                if (correct)
-                {
-                    used[guessInt] = guessed;
-                }
+                end = true;
             }
         }
 	}

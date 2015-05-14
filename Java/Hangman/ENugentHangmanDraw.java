@@ -14,11 +14,11 @@ public class ENugentHangmanDraw
 		pen.setDirection(180);
 		pen.move(relSize*180/Math.PI + relSize*4/3);
 		pen.down();
-		drawHead(pen, relSize);
 	}
 	
 	public static void drawHead(StandardPen pen, int relSize)
 	{
+        drawHeadLoc(pen, relSize);
 		for (int counter = 0; counter < 360; counter++)
 		{
 			pen.move(relSize);
@@ -55,18 +55,6 @@ public class ENugentHangmanDraw
 		pen.setDirection(180);
 		pen.move(relSize*180/Math.PI);
 		pen.down();
-	}
-	
-	public static void drawHeadEye(int eye, StandardPen pen, int relSize)
-	{
-		if (eye == 1)
-		{
-			drawHeadEye1(pen, relSize);
-		}
-		if (eye == 2)
-		{
-			drawHeadEye2(pen, relSize);
-		}
 	}
 	
 	public static void drawHeadEye1(StandardPen pen, int relSize)
@@ -179,25 +167,61 @@ public class ENugentHangmanDraw
 	{
 		drawBodyLoc(pen, relSize);
 		pen.move(200*relSize);
-		pen.turn(45);
-		pen.move(100*relSize);
-		pen.turn(180);
-		pen.move(100*relSize);
-		pen.turn(90);
-		pen.move(100*relSize);
-		pen.turn(180);
-		pen.move(100*relSize);
-		pen.turn(45);
-		pen.move(170*relSize);
-		pen.turn(135);
-		pen.move(75*relSize);
-		pen.turn(180);
-		pen.move(75*relSize);
-		pen.turn(270);
-		pen.move(75*relSize);
-		pen.turn(180);
-		pen.move(75*relSize);
 	}
+    
+    public static void drawArmLoc(StandardPen pen, int relSize)
+    {
+		pen.up();
+		pen.home();
+		pen.setDirection(180);
+		pen.move(relSize*180/Math.PI + relSize*4/3);
+		pen.setDirection(90);
+		pen.move(145*relSize-relSize*180/Math.PI);
+		pen.setDirection(270);
+        pen.move(30);
+		pen.down();
+    }
+    
+    public static void drawLegLoc(StandardPen pen, int relSize)
+    {
+		pen.up();
+		pen.home();
+		pen.setDirection(180);
+		pen.move(relSize*180/Math.PI + relSize*4/3);
+		pen.setDirection(90);
+		pen.move(145*relSize-relSize*180/Math.PI);
+		pen.setDirection(270);
+        pen.move(200);
+		pen.down();
+    }
+    
+    public static void drawArmL(StandardPen pen, int relSize)
+    {
+        drawArmLoc(pen, relSize);
+        pen.turn(45);
+        pen.move(75);
+    }
+    
+    public static void drawArmR(StandardPen pen, int relSize)
+    {
+        drawArmLoc(pen, relSize);
+        pen.turn(-45);
+        pen.move(75);
+    }
+    
+    public static void drawLegL(StandardPen pen, int relSize)
+    {
+        drawLegLoc(pen, relSize);
+        pen.turn(45);
+        pen.move(100);
+    }
+    
+    public static void drawLegR(StandardPen pen, int relSize)
+    {
+        drawLegLoc(pen, relSize);
+        pen.turn(-45);
+        pen.move(100);
+    }
 	
 	public static void drawNoose(StandardPen pen, int relSize)
 	{

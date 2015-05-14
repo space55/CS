@@ -3,15 +3,8 @@
 
 import java.util.Scanner;
 
-public class guessMyWord
+public class guessMyWordInput
 {
-    int length;
-    
-    public static void init(String word)
-    {
-        length = word.length();
-    }
-    
     public static char guess()
     {
         Scanner in = new Scanner(System.in);
