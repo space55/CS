@@ -4,24 +4,43 @@
 
 import java.util.Scanner;
 import TurtleGraphics.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
-public class ENugentHangmanGame
+public class main
 {
 	public static void main(String[] args) throws Exception
 	{
         boolean end = false;
         while (!end)
         {
+            SketchPadWindow pad = new SketchPadWindow(900, 900);
             int relSize = 1;
-            String secretWord = "power";
             StandardPen pen = new StandardPen();
-            guessMyWordInput gInput = new guessMyWordInput();
-            guessMyWordCheck gCheck = new guessMyWordCheck();
-            guessMyWordIncorrect gInc = new guessMyWordIncorrect();
-            ENugentHangmanDraw draw = new ENugentHangmanDraw();
-            draw.drawNoose(pen, relSize);
+            input gInput = new input();
+            check gCheck = new check();
+            incorrect gInc = new incorrect();
+            draw draw = new draw();
+            getWord gW = new getWord();
             Scanner in = new Scanner(System.in);
+            
+            //Number of words: 349877
+            
+            String trophy [] = new String [10];
+            BufferedReader tR = new BufferedReader(new FileReader("trophy.txt"));
+            String read = tR.readLine();
+            for (int counter = 0; counter < 10; counter++)
+            {
+                trophy[counter] = read;
+                read = tR.readLine();
+            }
+            draw.drawNoose(pen, relSize);
+            
             int incN = 0;
+            String secretWord = gW.get();
+            //System.out.println(secretWord);
+            
 
             boolean cont = true;
             int length = secretWord.length();
@@ -36,11 +55,6 @@ public class ENugentHangmanGame
 
             while (cont)
             {
-                dashes = "";
-                for (int counter = 0; counter < length; counter++)
-                {
-                    dashes += wordArray[counter];
-                }
                 System.out.print("You've used: ");
                 for (int counter = 0; counter < used.length()-1; counter++)
                 {
@@ -52,20 +66,20 @@ public class ENugentHangmanGame
                 }
                 if (used.length() == 1)
                 {
-                    System.out.println()
+                    System.out.println(used);
                 }
                 System.out.println();
+                System.out.println();
+                dashes = "";
+                for (int counter = 0; counter < length; counter++)
+                {
+                    dashes += wordArray[counter];
+                }
                 System.out.println(dashes);
                 char guessed = gInput.guess();
                 System.out.println("\n");
 
-                boolean letterUsed = false;
-
                 if (used.indexOf(guessed) != -1)
-                {
-                    letterUsed = true;
-                }
-                if (letterUsed)
                 {
                     System.out.println("You've already used that.");
                 }
@@ -88,22 +102,36 @@ public class ENugentHangmanGame
                     }
                     if (correct)
                     {
-                        int spot = secretWord.indexOf(guessed);
-                        wordArray[spot] = guessed;
+                        for (int counter = 0; counter < secretWord.length(); counter++)
+                        {
+                            if (secretWord.charAt(counter) == guessed)
+                            {
+                                wordArray[counter] = guessed;
+                            }
+                        }
+                        used += guessed;
                     }
+                }
+                dashes = "";
+                for (int counter = 0; counter < length; counter++)
+                {
+                    dashes += wordArray[counter];
                 }
                 if (dashes.equalsIgnoreCase(secretWord))
                 {
-                    System.out.println("You've finished the game! Congratz!");
+                    for (int counter = 0; counter < 10; counter++)
+                    {
+                        System.out.println(trophy[counter]);
+                    }
+                    System.out.println("You've finished the game! Congratz! The word was: " + secretWord);
                     cont = false;
                 }
-                letterUsed = false;
             }
             System.out.println("Would you like to play again?");
             String again = in.nextLine();
             if (again.equalsIgnoreCase("no"))
             {
-                end = true;
+                System.exit(0);
             }
         }
 	}

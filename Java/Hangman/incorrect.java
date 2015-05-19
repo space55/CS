@@ -3,12 +3,12 @@
 
 import TurtleGraphics.*;
 
-public class guessMyWordIncorrect
+public class incorrect
 {
     public static boolean incorrect(StandardPen pen, int relSize, int incorrectNumber)
     {
         int guessesLeft = 11-incorrectNumber;
-        ENugentHangmanDraw draw = new ENugentHangmanDraw();
+        draw draw = new draw();
         boolean lose = false;
         if (incorrectNumber == 0)
         {

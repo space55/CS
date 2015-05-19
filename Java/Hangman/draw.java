@@ -3,7 +3,7 @@
 
 import TurtleGraphics.*;
 
-public class ENugentHangmanDraw
+public class draw
 {	
 	public static void drawHeadLoc(StandardPen pen, int relSize)
 	{
@@ -127,17 +127,20 @@ public class ENugentHangmanDraw
 		pen.up();
 		pen.home();
 		pen.move(relSize*180/Math.PI+145*relSize);
-		pen.setDirection(270);
+        pen.turn(90);
+        pen.move(relSize*180/Math.PI + relSize*180/Math.PI/2 - relSize*3);
+		pen.turn(90);
 		pen.move(relSize*30);
-		pen.turn(270);
-		pen.move(relSize*20);
+        pen.setDirection(270);
+        pen.move(relSize*45);
 		pen.down();
 	}
 	
 	public static void drawMouth(StandardPen pen, int relSize)
 	{
         drawMouthLoc(pen, relSize);
-		pen.turn(130);
+		pen.setDirection(130);
+        pen.turn(180);
 		for (int counter = 0; counter < 50; counter++)
 		{
 			pen.move(1*relSize);
@@ -258,6 +261,7 @@ public class ENugentHangmanDraw
 	
 	public static void test(StandardPen pen) // This was used for debugging, such as when I wanted to know where the heck my pen decided it wanted to be
 	{
+        pen.down();
 		pen.move(100);
 		pen.turn(180);
 		pen.move(100);

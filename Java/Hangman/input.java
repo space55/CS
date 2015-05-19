@@ -3,12 +3,11 @@
 
 import java.util.Scanner;
 
-public class guessMyWordInput
+public class input
 {
     public static char guess()
     {
         Scanner in = new Scanner(System.in);
-        System.out.println();
         System.out.println("Guess a letter");
         System.out.print(">> ");
         String input = in.next();
