@@ -17,13 +17,15 @@ public class main
         {
             SketchPadWindow pad = new SketchPadWindow(900, 900);
             int relSize = 1;
-            StandardPen pen = new StandardPen();
+            StandardPen pen = new StandardPen(pad);
             input gInput = new input();
             check gCheck = new check();
             incorrect gInc = new incorrect();
             draw draw = new draw();
             getWord gW = new getWord();
             Scanner in = new Scanner(System.in);
+            
+            boolean cheater = false;
             
             //Number of words: 349877
             
@@ -46,6 +48,8 @@ public class main
             int length = secretWord.length();
             char wordArray [] = new char [length];
             String dashes = "";
+            
+            String cheatChars = "#$";
             
             for (int counter = 0; counter < length; counter++)
             {
@@ -77,6 +81,14 @@ public class main
                 }
                 System.out.println(dashes);
                 char guessed = gInput.guess();
+                if (guessed == '$')
+                {
+                    cheater = true;
+                }
+                if (guessed == '#')
+                {
+                    System.out.println(secretWord);
+                }
                 System.out.println("\n");
 
                 if (used.indexOf(guessed) != -1)
@@ -85,31 +97,34 @@ public class main
                 }
                 else
                 {
-                    boolean correct = gCheck.check(guessed, secretWord);
-                    if (!correct)
+                    if (cheatChars.indexOf(guessed) == -1)
                     {
-                        boolean lose = gInc.incorrect(pen, relSize, incN);
-                        if (lose)
+                        boolean correct = gCheck.check(guessed, secretWord);
+                        if (!correct)
                         {
-                            cont = false;
-                            System.out.println("You've lost.");
-                        }
-                        else
-                        {
-                            used += guessed;
-                            incN++;
-                        }
-                    }
-                    if (correct)
-                    {
-                        for (int counter = 0; counter < secretWord.length(); counter++)
-                        {
-                            if (secretWord.charAt(counter) == guessed)
+                            boolean lose = gInc.incorrect(pen, relSize, incN);
+                            if (lose && !cheater)
                             {
-                                wordArray[counter] = guessed;
+                                cont = false;
+                                System.out.println("You've lost. The word was \"" + secretWord + "\"");
+                            }
+                            else
+                            {
+                                used += guessed;
+                                incN++;
                             }
                         }
-                        used += guessed;
+                        if (correct)
+                        {
+                            for (int counter = 0; counter < secretWord.length(); counter++)
+                            {
+                                if (secretWord.charAt(counter) == guessed)
+                                {
+                                    wordArray[counter] = guessed;
+                                }
+                            }
+                            used += guessed;
+                        }
                     }
                 }
                 dashes = "";
@@ -123,7 +138,7 @@ public class main
                     {
                         System.out.println(trophy[counter]);
                     }
-                    System.out.println("You've finished the game! Congratz! The word was: " + secretWord);
+                    System.out.println("You've finished the game! Congratz! The word was: \"" + secretWord + "\"");
                     cont = false;
                 }
             }
