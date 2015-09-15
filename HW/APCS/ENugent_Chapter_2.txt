@@ -1,0 +1,44 @@
+Exercises:
+
+2.1:
+1. A program that can be run on multiple systems and types of computers without change
+2. It's portable, i.e. it can be run on many different computers without a specific version for each, as well as being robust because it supports making programs that don't overwrite memory.
+3. A thread is an independant process that does not run in tandem with another thread, but can run its code at the same time as another process
+
+2.2:
+1. Java Virtual Machine
+2. The 1s and 0s that go straight into computer. JVM is an interpreter, that uses the JIT method (converting to byte code as it comes across a line, instead of beforehand).
+3. An applet is something that is already converted to byte code, and can be placed on places like the web
+
+2.4:
+1. A program is something that can run on your computer to do calculations or work for you.
+2. Prints to screen and placing a newline character (\n) at the end
+3. See below:
+
+System.out.println("Eamonn Nugent");
+System.out.println("#HOUSE NUMBER REDACTED# June Rd");
+System.out.println("Stamford, Connecticut");
+System.out.println("#PHONE REDACTED#");
+
+2.5:
+1. Editing, Compiling, Executing
+2. They are errors that appear as you convert the program to byte code
+3. Forgetting a quote on line A, forgetting and ending parenthesis on line B
+4. It makes it so the next maintaner of your mess of code has some general idea of what it does before rewriting it
+
+2.6:
+1. It is an allocation of memory used to store data
+2. It takes whatever is on the right side and assigns it to whatever is on the left side
+3. It is an object that allows you to easily take input from the console
+4. Double is a double-precision data type able to store numbers with decimals up to an inconviently huge limit
+5. Print outputs to the console what ever you have written to it, whereas println inserts a newline character at the end (\n)
+
+Review Questions:
+1. Java is secure, portable, and robust
+2. It is the machine code written in 1s and 0s
+3. It's the Java Virtual Machine, used for JIT compiling (Just In Time compiling), rather than compiling all at once
+4. System.out and Scanner
+5. Missing a semicolon and missing a parenthesis
+6. You need to write the program, you need to compile the program, you need to hope the compiler doesn't throw errors, and you need to execute the program
+7. It allows for better readability, i.e. allowing the next mantainer of your code to hopefully understand what you have written
+8. It allows you to access external libraries for simpler code
