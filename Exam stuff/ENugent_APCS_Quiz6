@@ -1,0 +1,51 @@
+1. What is the formal structure or signature of a class? Give an example
+    Instance Variables - private int z;
+    Constructor        - public Student() {}
+    Methods            - public int getScore() {}
+
+2. Explain the three characteristics of an object
+    Behavior - How the object acts with data
+    Data     - Things the class has stored
+    Name     - Self explanatory
+
+3. What is the benefit of "garbage collection"?
+    It allows for less memory to be used by the program, in turn allowing for a program being able to run on more computers, and require less resources to run
+
+4. Why would some variables be declared as private and others as public?
+    Private variables allow for hidden data that other classes can't see, and/or to be used as local storage
+    Public variables allow for other classes to access and change that variable (unless it's final)
+
+5. What is a method signature? Give an example.
+    A method signature is the visibility, return type, name, and parameters of a method
+    i.e. protected static Student getStudent(String name)
+
+6. What is the difference between a default constructor and a regular constructor?
+    Default constructors initialize variables to 0 or null
+    Regular constructors allow you to do your own stuff
+
+7. What is the difference between a mutator method and an accessor method?
+    A mutator method (setter) allows for someone to change data in the object
+    An accessor method (getter) allows for someone to get data from the object
+
+8. Explain the difference between primitive type variables and reference types. Give an example of each
+    Primitive are usually numbers or chars (int num = 0; char a = 65)
+    Reference variables are usually pointers to other locations in memory, i.e. objects (Thread t = new Thread(ThisThreadProgramWillCrashThisComputer))
+
+9. What is the difference between a for loop and a while loop?
+    A for loop allows you to initialize a variable, define the conditions under which the loop will run, and what to do once the loop has finished an iteration
+    A while loop only allows you to set conditions under which the loop will run
+
+10. What does it mean to instantiate or create an object?
+    It means that you allocate a space in memory for an object to live, and allow other parts of your program to use methods from that object
+
+11. How would you create a new Student object named stu?
+    Student stu = new Student();
+
+12. Explain the following functions in the Student class. What type of method it is, what its return type, and what are the parameters
+    void setName(aString) - Returns nothing, asks for a String, and sets name to that String
+    String getName() - Returns the name of the Student, and asks for no parameters
+    void setScore(int whichTest, testScore) - Returns nothing, and sets test whichTest's (a parameter) score to testScore (another parameter, both of type int)
+    int getScore(whichTest) - Returns an int, the score of test whichTest (a parameter of type int)
+    int getAverage() - Returns the average of all test scores
+    int getHighScore() - Returns the highest score of all tests, and asks for no parameters
+    String toString() - Returns object's data in String format, and asks for no parameters

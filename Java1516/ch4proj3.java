@@ -1,0 +1,13 @@
+//Eamonn Nugent
+//Chapter 4 Project 3
+
+import java.util.Scanner;
+
+public class ch4proj3
+{
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        
+    }
+}

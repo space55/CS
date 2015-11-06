@@ -1,0 +1,40 @@
+Exercises:
+1.2:
+1. A bit is a 1 or 0, whereas a byte is 8 1s and 0s
+2. System.in, System.out (There are no others, other than advanced stuff like KeyListener), unless stuff like printers, monitors, keyboards, and speakers
+3. Extra storage space for your movies
+4. RAM is Random Access Memory, and it is used as short term, high speed, volatile memory for programs and open files
+5. Hardware is something you can touch, software is the program behind the hardware
+
+1.3:
+1. 227
+2. 1115
+3. ASCII is the American Standard Code for Information Ihavenoidea, where as Unicode is sort of like an extended ASCII - it uses up to four bytes for special characters
+4. 15
+5. 2
+
+1.4:
+1. It isn't easily readable, and it is incredibly hard to write in - a 1 or 0 misplaced, and you had no idea where it was. An extra 1 or 0 somewhere, and you might as well just give up
+2. Very fast, and human readable
+3. It loads and runs the machine language program
+4. High level languages are easily human readable and can deal with the memory for you, whereas assembly is low level and runs at extreme speed
+
+1.5:
+1. Figure out what the program is supposed to do and find a way to do it
+2. Maintenance
+3. To clarify what their program is going to do
+4. Textbook says analysis. No programming is done in Analysis, so I vote wherever you first do the programming
+
+1.6:
+1. It is like building - the frame first, then the core, like plumbing, then the majority, or drywall and appliances, then the last finishing touches like paint and carpets.
+2. Object A can tell Object B to do anything and Object B will do it, and Object A can possibly do something with what Object B has just done
+3. It is a portion of a program, that may or may not be able to run on its own, and it mainly used for human readability and objects.
+4. Inheritance is where a class can use the same variables and/or methods as its superclass
+5. It's where classes and threads can do things without gaining any information from them
+
+Review Questions:
+1. CPU, RAM, Aux. Storage
+2. Keyboard, mouse, microphone
+3. Speakers, monitor, printer
+4. Application software is stuff for the user to get on their own, system software is what actually runs the hardware
+5. Assembly, COBOL, Cobra (Yes, that's a programming language. Along with Brainf**k)

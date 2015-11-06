@@ -1,0 +1,15 @@
+Eamonn Nugent
+Boolean ?s
+
+01. C (Mk. 2, or D) - Whenever either A is true or B is true
+02. C (Mk. 1) - Whenver B is true
+03. E - Whenever both B and A is true
+04. C - true whenever both A is true or B is true
+05. A - Distributive Property
+06. A - Distrubutive Property
+07. E - True in all cases
+08. E - True whenever both A is false and B is false
+09. E - (A >= B) && (C <= D)
+10. B - True in all cases
+11. D - Only whenever p = 0 or q = 0
+12. B - True in all cases

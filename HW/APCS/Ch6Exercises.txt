@@ -1,0 +1,35 @@
+Eamonn Nugent (I remembered my name this time!)
+
+6.1:
+1. A class is a physical file or container for objects, whereas an object is a group of methods used to perform a function
+2. It gets deleted
+3. Its behaviour, its state, and its identity
+4. Clients need to know the server's interface, and nothing about the inside (need-to-know basis), whereas the server sends back data
+5. The methods that can be called
+
+6.2:
+1. Mutators change stuff in the class, accessors get information from the class
+2. Public - When you want EVERYTHING to be able to access this method/class, and private - when you want only this class to access this data
+3. It is the first thing called when you create an object, to initialize
+4. So they can send any data they want and we can store it as a String
+5. Each object is just a pointer to a different location in memory, so when you set one pointer equal to another pointer, they both reference the same thing
+6. A primitive is something that doesn't need a pointer to be stored, whereas a reference is a pointer
+7. Null is garbage, or just plain nothing
+8. It means that the referenced object is not equal to anything
+9. Default constructor doesn't have any extra data, whereas others can initialize data
+10. Sets to garbage or null
+11. Creating new objects that you can edit with identical starting values
+
+6.4:
+1. Formal are ones in method sig, actual are ones that are sent via method calls
+2. Takes data and places them to locations of the data in the method sig
+3. public static int sum(int arg0, int arg1)
+4. Temporary storage for data in the method, class, or universe (your choice)
+
+6.5:
+1. Instance lives after execution, local gets executed (with a garbage-collector guillotine) after execution, and a parameter is simply a reference
+2. Same name, different value (LOTS of fun to debug, I know well)
+3. 
+a. Instance: a & b, local: c & d, parameters: x & y
+b. a & b can only be seen by the class, x, y, c & d can only be seen by the method
+c. a & b live forever, c, d, x, & y live only through the method execution
