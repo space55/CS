@@ -22,7 +22,7 @@ public class Book
 
 	public String examine()
 	{
-		return title + "\n" + author;
+		return title + "\nBy: " + author;
 	}
 
 	public String toString()

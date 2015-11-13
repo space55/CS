@@ -25,40 +25,51 @@ public class Patron
 		return name;
 	}
 
-	public boolean borrow(Book book)
+	public int borrow(Book book)
 	{
+		boolean work = false;
+		if (book1 == book || book2 == book || book3 == book)
+		{
+			return 1;
+		}
 		if (book1 == null)
 		{
 			book1 = book;
+			work = true;
 		}
 		else if (book2 == null)
 		{
 			book2 = book;
+			work = true;
 		}
 		else if (book3 == null)
 		{
 			book3 = book;
+			work = true;
+		}
+		if (work)
+		{
+			return 2;
 		}
 		else
 		{
-			return false;
+			return 0;
 		}
-		return true;
 	}
 
 	public boolean ret(Book book)
 	{
-		if (book1.equals(book))
+		if (book1 == book)
 		{
 			book1 = null;
 			return true;
 		}
-		else if (book2.equals(book))
+		else if (book2 == book)
 		{
 			book2 = null;
 			return true;
 		}
-		else if (book3.equals(book))
+		else if (book3 == book)
 		{
 			book3 = null;
 			return true;
@@ -83,11 +94,38 @@ public class Patron
 		return false;
 	}
 
+	public Book searchFor(String search)
+	{
+		if (book1.getTitle().toLowerCase().contains(search))
+		{
+			return book1;
+		}
+		else if (book2.getTitle().toLowerCase().contains(search))
+		{
+			return book2;
+		}
+		else if (book3.getTitle().toLowerCase().contains(search))
+		{
+			return book3;
+		}
+		return null;
+	}
+
 	public String getBooksBorrowed()
 	{
-		String ret = "Book 1: " + book1.getTitle() + " by " + book1.getAuthor() + "\n";
-		ret += "Book 2: " + book2.getTitle() + " by " + book2.getAuthor() + "\n";
-		ret += "Book 3: " + book3.getTitle() + " by " + book3.getAuthor();
+		String ret = "";
+		if (book1 != null)
+		{
+			ret += "Book 1: " + book1.getTitle() + " by " + book1.getAuthor() + "\n";
+		}
+		if (book2 != null)
+		{
+			ret += "Book 2: " + book2.getTitle() + " by " + book2.getAuthor() + "\n";
+		}
+		if (book3 != null)
+		{
+			ret += "Book 3: " + book3.getTitle() + " by " + book3.getAuthor();
+		}
 		return ret;
 	}
 }
