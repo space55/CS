@@ -1,0 +1,153 @@
+Eamonn Nugent
+
+1. C (See test for work)
+2. A (See test for work)
+3. B
+4. HolaHelloGoeden DagAloha
+5. Book book = new Book("Ernest Hemmingway", "The Old Mand and the Sea", "How it was Made: The Old Man and the Sea", "An Autobiography of Ernest Hemmingway");
+
+Problems:
+1. D
+2. B
+3.
+public Time()
+{
+    myHours = 0;
+    myMins = 0;
+    mySecs = 0;
+}
+
+4.
+public void resetTime(int h, int m, int s)
+{
+    myHrs = h;
+    myMins = m;
+    mySecs = s;
+}
+
+public int getMinutes()
+{
+    return myMins;
+}
+
+public int getSeconds()
+{
+    return mySecs;
+}
+
+Another set of problems/problem:
+a.
+public Book()
+{
+    title = "";
+    author = "";
+    price = 0.0;
+}
+
+b.
+public Book(String title, String author, String price)
+{
+    this.title = title;
+    this.author = author;
+    this.price = price;
+}
+
+c.
+public void giveDiscount(double byPercent)
+{
+    price -= price * (byPercent / 100);
+}
+
+d.
+public class BookTest
+{
+    public static void main(String[] args)
+    {
+        Book book = new Book("Old Man and the Sea", "Ernest Hemmingway", 9.99);
+    }
+}
+
+e.
+public class BookTest
+{
+    public static void main(String[] args)
+    {
+        Book book = new Book();
+    }
+}
+
+Last Problem:
+public class CreditCard
+{
+    double balance;
+    double interest;
+    
+    public CreditCard(double balance, double interest)
+    {
+        this.balance = balance;
+        this.interest = interest;
+    }
+    
+    public void setBalance(double balance)
+    {
+        this.balance = balance;
+    }
+    
+    public void setInterest(double interest)
+    {
+        this.interest = interest;
+    }
+    
+    public void chargeInterest()
+    {
+        if (balance > 0)
+        {
+            balance += balance * (interest / 100);
+        }
+    }
+    
+    public double getInterest(double amt)
+    {
+        return amt * (interest / 100);
+    }
+    
+    public void pay(double payment)
+    {
+        balance -= payment + getInterest(balance);
+    }
+    
+    public double getBal()
+    {
+        return bal;
+    }
+    
+    public double getInterest()
+    {
+        return interest;
+    }
+    
+    public String toString()
+    {
+        String ret = "":
+        ret += "Balance:  " + balance + "\n";
+        ret += "Interest: " + interest;
+        return ret;
+    }
+}
+
+public class CreditCardTest
+{
+    public static void main(String[] args)
+    {
+        CreditCard cust1 = new CreditCard();
+        CreditCard cust2 = new CreditCard(100, .18);
+        cust1.setBalance(200);
+        cust1.pay(25);
+        cust2.setBalance(450);
+        cust2.pay(100);
+        cust1.chargeInterest();
+        cust2.chargeInterest();
+        System.out.println("Cust1: " + cust1.getBal());
+        System.out.println("Cust2: " + cust2.getBal());
+    }
+}

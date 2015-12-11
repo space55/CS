@@ -1,0 +1,61 @@
+Fill in the Blanks:
+1. Object Oriented Programming
+2. State
+3. Message Sender/Client
+4. Reference
+5. Primitive
+6. Shadowing
+7. Import
+8. Default
+9. Public
+10. Method
+11. Local
+
+Written Questions:
+1.
+public class AutoTester
+{
+    public static void main(String[] args)
+    {
+        Auto auto = new Auto();
+        System.out.println("Make:  " + auto.getMake());
+        System.out.println("Model: " + auto.getModel());
+        System.out.println("Year:  " + auto.getYear());
+    }
+}
+
+2.
+Constructor - Allows you to create a new instance of the class, can take parameters
+Instance variables - All the variables stored that the entire class can access
+Getter methods - Allows you to retrieve data from the class
+Setter methods - Allows you to send data to the object to change stuff
+
+3.
+public Auto()
+{
+    make = "";
+    model = "";
+    year = 0; // It's a car from ancient Rome. It's small and its engine needs to be fixed every five minutes. It also has spears.
+}
+
+public Auto(String make, String model, int year)
+{
+    this.make = make;
+    this.model = model;
+    this.year = year;
+}
+
+public Auto(Auto auto)
+{
+    make = auto.getMake();
+    model = auto.getModel();
+    year = auto.getYear();
+}
+
+4.
+public static void main(String[] args)
+Public - visibility modifier. Means that any class can see it. Can be public, protected, or private
+Static - Means it is not an object, and there can be only one instance of the class. Can be static or not
+Void - Return type. Means that it doesn't return anything. Can be boolean, int, Random, Robot, String, float, etc.
+main - Name. How you call the class (in this case, the name the Java compiler uses) - Can be run, start, main, getNumber, etc.
+(String[] args) - Parameters. Allows you (or the JVM) to pass data to the method to be used - Anything you could possibly imagine

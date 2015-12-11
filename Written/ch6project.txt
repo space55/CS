@@ -1,0 +1,249 @@
+Eamonn Nugent
+
+1. D
+2.
+Book book = new Book("Old Man and the Sea", "Ernest Hemmingway");
+
+3.
+public Book(String name, String auth)
+{
+    this.name = name;
+    this.auth = auth;
+}
+
+4.
+public static void main(String[] args) {}
+
+5.
+public class Book
+
+6.
+public class Dice
+{
+    int dots;
+    public Dice()
+    {
+        Random rand = new Random();
+        dots = rand.nextInt(6) + 1;
+    }
+    
+    public int getDots()
+    {
+        return dots;
+    }
+}
+
+7.
+public class TestDice
+{
+    public static void main(String[] args)
+    {
+        Dice dice = new Dice();
+        System.out.println(dice.getDots());
+    }
+}
+
+8.
+11
+
+9.
+public class Employee
+{
+    private String fName, lName;
+    private double salary;
+    
+    public Employee()
+    {
+        fName = "";
+        lName = "";
+        salary = 0;
+    }
+    
+    public void setSalary(String fName, String lName, double salary)
+    {
+        this.fName = fName;
+        this.lName = lName;
+        this.salary = salary;
+    }
+    
+    public double getSalary()
+    {
+        return salary;
+    }
+    
+    public void raiseSalary(double byPercent)
+    {
+        salary = salary + salary * percent;
+    }
+    
+    public String toString()
+    {
+        String ret = "";
+        ret += "Salary:      " + salary;
+        ret += "First Name:  " + fName;
+        ret += "Last Name:   " + lName;
+        return ret;
+    }
+}
+
+public class TestEmployee
+{
+    public static void main(String[] args)
+    {
+        Employee worker = new Employee();
+        worker.setSalary("John", "Doe", 50000);
+        worker.raiseSalary();
+        System.out.println(worker);
+    }
+}
+
+10.
+public class Date
+{
+    private int myDay, myMonth, myYear;
+    
+    public Date()
+    {
+        myDay = 0;
+        myMonth = 0;
+        myYear = 0;
+    }
+    
+    public Date(int mo, int day, int year)
+    {
+        myDay = mo;
+        myMonth = day;
+        myYear = year;
+    }
+    
+    public int getMonth()
+    {
+        return myMonth;
+    }
+    
+    public int getDay()
+    {
+        return myDay;
+    }
+    
+    public int getYear()
+    {
+        return myYear;
+    }
+    
+    public void setMonth(int month)
+    {
+        myMonth = month;
+    }
+    
+    public void setDay(int day)
+    {
+        myDay = day;
+    }
+    
+    public void setYear(int year)
+    {
+        myYear = year;
+    }
+    
+    public void setDate(int month, int, day, int year)
+    {
+        myMonth = month;
+        myDay = day;
+        myYear = year;
+    }
+    
+    public boolean compare(Date date)
+    {
+        if (myMonth == date.getMonth() &&myDay == date.getDay() && myYear == date.getYear())
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    public String toString()
+    {
+        String ret = "";
+        ret += "Month: " + myMonth;
+        ret += "Day:   " + myDay;
+        ret += "Year:  " + myYear;
+        ret += "\n";
+        ret += myMonth + "/" + myDay + "/" + myYear;
+        return ret;
+    }
+}
+
+public class TestDate
+{
+    public static void main(String[] args)
+    {
+        Date date = new Date(2, 13, 1947);
+        Date date1 = new Date();
+        date1.setDate(11, 19, 201);
+        System.out.println(date1);
+    }
+}
+
+11.
+public class BankAccount
+{
+    private int bal;
+    private String name;
+    public BankAccount()
+    {
+        bal = 0;
+        name = "";
+    }
+    
+    public BankAccount(int bal, String name)
+    {
+        this.bal = bal;
+        this.name = name;
+    }
+    
+    public void deposit(int amt)
+    {
+        bal += amt;
+    }
+    
+    public void withdraw(int amt)
+    {
+        bal -= amt;
+    }
+    
+    public int getBal()
+    {
+        return bal;
+    }
+    
+    public String getName()
+    {
+        return name;
+    }
+    
+    public String toString()
+    {
+        return "Bank account with name " + name + " has a balance of " + bal + ".";
+    }
+}
+
+public class BankAccountTest
+{
+    public static void main(String[] args)
+    {
+        BankAccount bob = new BankAccount(0, "Bob");
+        BankAccount mary = new BankAccount(200, "Mary");
+        BankAccount joan = new BankAccount(500, "Joan");
+        
+        bob.deposit(50);
+        System.out.println("Bob's ending balance: " + bob.getBal());
+        
+        mary.withdraw(100);
+        mary.deposit(40);
+        System.out.println(mary);
+        
+        joan.deposit(700);
+        System.out.println(joan);
+    }
+}
